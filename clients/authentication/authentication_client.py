@@ -25,16 +25,17 @@ class AuthenticationClient(APIClient):
        Метод выполняет аутентификацию пользователя.
 
        :param request: Словарь с email и password.
-       :return: Ответ от сервера в виде объекта httpx.Response
+       :return: Ответ от сервера в виде объекта httpx. Response
        """
         return  self.post("/api/v1/authentication/login", json=request)
-    
-    def refresh_api(self, request):
+        
+    def refresh_api(self, request: TypedDict) -> Response:
         """
         Метод обновляет токен авторизации.
 
         :param request: Словарь с refreshToken.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx. Response
         """
         return self.post("/api/v1/authentication/refresh", json=request)
+
     
