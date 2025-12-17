@@ -45,7 +45,7 @@ class ExercisesClient(APIClient):
         :param query: Словарь с userId.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.get("/api/v1/exercises/", params=query)
+        return self.get("/api/v1/exercises", params=query)
     
     def get_exercise_api(self, exercise_id: str) -> Response:
         """
@@ -64,7 +64,7 @@ class ExercisesClient(APIClient):
         previewFileId, createdByUserId.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post("/api/v1/exercises/", json=request)
+        return self.post("/api/v1/exercises", json=request)
     
     def update_exercise_api(self, exercise_id: str, request: UpdateExerciseRequestDict) -> Response:
         """
